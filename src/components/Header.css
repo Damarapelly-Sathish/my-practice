@@ -1,0 +1,30 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+  }
+  
+  .nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  
+  .account-actions a, .account-actions button {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .account-actions button {
+    background-color: #007bff;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+  
