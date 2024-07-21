@@ -47,28 +47,15 @@ function App() {
   const items = [
     { label: 'Home', icon: 'pi pi-fw pi-home', command: () => window.location = "/" },
   ];
+  
   return (
    
      <> 
       <Header />
      { !isProductPage && (<div className="App">
       <div className="main-content">
-
-      <Menubar model={items} />
-        <h1>Product List</h1>
-        <Sidebar />   
-        <ProductCardFlipper />
-        <ul>
-          {products.map(product => (
-            <li key={product.id}>
-              <Link to={`/product/${product.id}`}>{product.name}</Link>
-            </li>
-          ))}
-        </ul>
-
         <Sidebar />
         <ProductGrid />
-
       </div>
     </div>) }
     <Routes>

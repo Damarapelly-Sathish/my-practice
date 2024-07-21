@@ -1,9 +1,13 @@
 import React from 'react';
 import './ProductGrid.css';
+import { BrowserRouter as Router, Routes, Route, Link,useLocation ,useParams} from 'react-router-dom';
+import ProductPage from '../Pages/ProductPage';
+
 
 const ProductGrid = () => {
   const products = [
     {
+      id:1,
       image: './image1.png',
       discount: '25%',
       name: 'Product Name',
@@ -64,7 +68,7 @@ const ProductGrid = () => {
     <div className="grid">
       {products.map((product, index) => (
         <div className="product-card" key={index}>
-          <img className="product-image" src={product.image} alt={product.name} />
+          <Link to={`/product/${index}`}>{<img className="product-image" src={product.image} alt={product.name} />}</Link>
           <div className="discount">-{product.discount}</div>
           <h3 className="product-name">{product.name}</h3>
           <div className="rating">
@@ -78,6 +82,7 @@ const ProductGrid = () => {
           <button className="add-to-cart-button">Add to Cart</button>
         </div>
       ))}
+
     </div>
   );
 };

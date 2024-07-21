@@ -18,6 +18,7 @@ const products = [
   
 function ProductDetailsComponent () {
     const { id } = useParams();
+    console.log(id)
     const product = products.find(p => p.id === parseInt(id));
 
     const [selectedColor, setSelectedColor] = useState(null);
@@ -40,8 +41,8 @@ function ProductDetailsComponent () {
       <div style={{marginRight:"20px"}}>
         <img src="/pexels-nietjuh-934070.jpg"  style={{width:"500px",height:"500px"}}/>
       </div>
-      <div className="product-image" style={{alignItems:"end",flexDirection:"column"}}>
-        { product.image.map(image =>  (<img src={image} style={{marginBlockEnd:"10px",width:"150px"}}/>))}
+      <div className="product-image" style={{flexDirection:"column"}}>
+        { product.image.map(image =>  (<img src={image} style={{marginBottom:"10px",width:"150px"}}/>))}
       </div>
       </div>
 
@@ -71,15 +72,7 @@ function ProductDetailsComponent () {
       
       <div>
       { product.size.map (size => (<Button label={size} severity="Info"text raised style={{marginRight:"10px",}}/>))}
-      </div>
-
-      {/* <Button label="Primary" text raised />
-      <Button label="Secondary" severity="secondary" text raised />
-      <Button label="Success" severity="success" text raised />
-      <Button label="Info" severity="info" text raised />
-      <Button label="Warning" severity="warning" text raised />
-      <Button label="Help" severity="help" text raised />
-      <Button label="Danger" severity="danger" text raised /> */}
+      </div>  
       
       <div>
       <Button label="Buy Now" icon="pi pi-check" className="p-button-success buy-button" />
