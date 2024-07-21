@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
-import ProductCardFlipper from './components/ProductCardFlipper';
+import ProductGrid from './components/ProductGrid';
 import './App.css';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <Header />
       <div className="main-content">
         <Sidebar />
-        <ProductCardFlipper />
+        <ProductGrid />
       </div>
     </div>
   );

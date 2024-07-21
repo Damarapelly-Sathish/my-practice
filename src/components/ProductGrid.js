@@ -1,46 +1,89 @@
 import React from 'react';
-import Slider from 'react-slick';
 import './ProductGrid.css';
 
-const products = [
-  { id: 1, name: 'Blue T-Shirt', price: '$29', image: 'path/to/image1.png', status: 'INSTOCK' },
-  { id: 2, name: 'Bracelet', price: '$15', image: 'path/to/image2.png', status: 'INSTOCK' },
-  { id: 3, name: 'Brown Purse', price: '$120', image: 'path/to/image3.png', status: 'OUTOFSTOCK' },
-  // Add more products as needed
-];
-
-function ProductSlider() {
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 10,
-    arrows: true
-  };
+const ProductGrid = () => {
+  const products = [
+    {
+      image: './image1.png',
+      discount: '25%',
+      name: 'Product Name',
+      rating: 5,
+      reviews: 12,
+      originalPrice: 321.00,
+      discountedPrice: 150.00
+    },
+    {
+      image: './image2.png',
+      discount: '25%',
+      name: 'Product Name',
+      rating: 4,
+      reviews: 15,
+      originalPrice: 80.00,
+      discountedPrice: 49.00
+    },
+    {
+      image: './image3.png',
+      discount: '25%',
+      name: 'Product Name',
+      rating: 3,
+      reviews: 21,
+      originalPrice: 124.00,
+      discountedPrice: 82.00
+    },
+    {
+      image: './image4.png',
+      discount: '25%',
+      name: 'Product Name',
+      rating: 5,
+      reviews: 22,
+      originalPrice: 250.00,
+      discountedPrice: 120.00
+    },
+    {
+      image: './image4.png',
+      discount: '25%',
+      name: 'Product Name',
+      rating: 5,
+      reviews: 22,
+      originalPrice: 250.00,
+      discountedPrice: 120.00
+    },
+    {
+      image: './image4.png',
+      discount: '25%',
+      name: 'Product Name',
+      rating: 5,
+      reviews: 22,
+      originalPrice: 250.00,
+      discountedPrice: 120.00
+    },
+    
+  ];
 
   return (
-    <div className="product-slider">
-      <Slider {...settings}>
-        {products.map(product => (
-          <div key={product.id} className="product-card">
-            <img src={product.image} alt={product.name} />
-            <h3>{product.name}</h3>
-            <p>{product.price}</p>
-            <div className={`status ${product.status.toLowerCase()}`}>
-              {product.status}
-            </div>
-            <div className="icons">
-              <button className="icon-search">🔍</button>
-              <button className="icon-star">⭐</button>
-            </div>
+    <div className="grid">
+      {products.map((product, index) => (
+        <div className="product-card" key={index}>
+          <img className="product-image" src={product.image} alt={product.name} />
+          <div className="discount">-{product.discount}</div>
+          <h3 className="product-name">{product.name}</h3>
+          <div className="rating">
+            {'★'.repeat(product.rating)}{'☆'.repeat(5 - product.rating)}
+            <span className="reviews">({product.reviews} reviews)</span>
           </div>
-        ))}
-      </Slider>
+          <div className="price">
+            <span className="original-price">${product.originalPrice.toFixed(2)}</span>
+            <span className="discounted-price">${product.discountedPrice.toFixed(2)}</span>
+          </div>
+          <button className="add-to-cart-button">Add to Cart</button>
+        </div>
+      ))}
     </div>
   );
-}
+};
 
-export default ProductSlider;
+
+
+export default ProductGrid;
 
 
