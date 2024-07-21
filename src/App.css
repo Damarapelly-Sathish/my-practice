@@ -5,3 +5,35 @@
 .main-content {
   display: flex;
 }
+
+
+.product-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px 20px;
+}
+
+.product-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.product-image-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-details {
+  flex: 1;
+  padding: 20px;
+}
+
+.buy-button {
+  margin-right: 10px;
+}
+
+.cart-button {
+  margin-top: 10px;
+}
