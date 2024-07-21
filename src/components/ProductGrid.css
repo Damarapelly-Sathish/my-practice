@@ -1,77 +1,76 @@
-.product-slider {
-  margin: 5px;
-  display: flex;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+  /* gap: 20px; */
+  padding: 20px;
 }
 
 .product-card {
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #fff;
   position: relative;
+  padding: 50px;
+  /* border: 1px solid #e0e0e0; */
+  border-radius: 8px;
+  text-align: center;
+  background-color: #fff;
+  margin:1px;
 }
 
-.product-card img {
-  width: 100%;
-  height: auto;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
+.product-image {
+  width: 250px;
+  height: 300px;
+  border-radius: 8px;
 }
 
-.product-card h3 {
-  margin: 10px 0 5px;
+.discount {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: pink;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product-name {
+  margin: 10px 0;
+}
+
+.rating {
+  font-size: 16px;
+  color: #ffa500;
+}
+
+.reviews {
+  font-size: 14px;
+  color: #888;
+  margin-left: 5px;
+}
+
+.price {
+  margin: 10px 0;
   font-size: 18px;
 }
 
-.product-card p {
-  color: #666;
-  font-size: 16px;
+.original-price {
+  text-decoration: line-through;
+  color: #888;
+  margin-right: 10px;
 }
 
-.status {
-  margin: 10px 0;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 14px;
+.discounted-price {
   font-weight: bold;
 }
 
-.status.instock {
-  background-color: #4CAF50;
+.add-to-cart-button {
+  background-color: #6200ea;
   color: #fff;
-}
-
-.status.outofstock {
-  background-color: #f44336;
-  color: #fff;
-}
-
-.icons {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.icon-search, .icon-star {
-  background-color: #00BCD4;
   border: none;
-  border-radius: 50%;
-  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 18px;
-  margin: 0 5px;
-  padding: 10px;
+  font-size: 16px;
 }
 
-.icon-star {
-  background-color: #4CAF50;
-}
-
-.slick-prev:before, .slick-next:before {
-  color: #000;
-}
-
-.slick-dots li button:before {
-  color: #00BCD4;
-}

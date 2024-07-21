@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
+
 import ProductCardFlipper from './components/ProductCardFlipper';
 import { BrowserRouter as Router, Routes, Route, Link,useLocation ,useParams} from 'react-router-dom';
 import 'primereact/resources/themes/saga-blue/theme.css';  // Import theme
@@ -9,6 +10,9 @@ import 'primeicons/primeicons.css';
 import { Menubar } from 'primereact/menubar';
 import ProductPage from './Pages/ProductPage';
 import { BreadCrumb } from 'primereact/breadcrumb';
+
+import ProductGrid from './components/ProductGrid';
+
 import './App.css';
 
 const products = [
@@ -49,6 +53,7 @@ function App() {
       <Header />
      { !isProductPage && (<div className="App">
       <div className="main-content">
+
       <Menubar model={items} />
         <h1>Product List</h1>
         <Sidebar />   
@@ -60,6 +65,10 @@ function App() {
             </li>
           ))}
         </ul>
+
+        <Sidebar />
+        <ProductGrid />
+
       </div>
     </div>) }
     <Routes>
