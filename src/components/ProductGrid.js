@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProductGrid.css';
 import { BrowserRouter as Router, Routes, Route, Link,useLocation ,useParams} from 'react-router-dom';
-import ProductPage from '../Pages/ProductPage';
+//import PaymentPage from './PaymentPage';
 
 
 const ProductGrid = () => {

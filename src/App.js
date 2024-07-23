@@ -10,6 +10,7 @@ import 'primeicons/primeicons.css';
 import { Menubar } from 'primereact/menubar';
 import ProductPage from './Pages/ProductPage';
 import { BreadCrumb } from 'primereact/breadcrumb';
+import PaymentPage from './components/PaymentPage';
 
 import ProductGrid from './components/ProductGrid';
 
@@ -43,7 +44,8 @@ export const BreadcrumbComponent = () => {
 function App() {
   const location = useLocation();
   const isProductPage = location.pathname.startsWith('/product');
-  
+  const PaymentPage1 = location.pathname.startsWith('/payment');
+
   const items = [
     { label: 'Home', icon: 'pi pi-fw pi-home', command: () => window.location = "/" },
   ];
@@ -52,7 +54,7 @@ function App() {
    
      <> 
       <Header />
-     { !isProductPage && (<div className="App">
+     { !PaymentPage1 && !isProductPage && (<div className="App">
       <div className="main-content">
         <Sidebar />
         <ProductGrid />
@@ -60,6 +62,7 @@ function App() {
     </div>) }
     <Routes>
     <Route path="/product/:id" element={<ProductPage />} />
+    <Route path="/payment" element={<PaymentPage/>} />
     </Routes> 
     </>
   );

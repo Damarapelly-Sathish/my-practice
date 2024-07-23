@@ -7,6 +7,7 @@ import { BreadcrumbComponent } from '../App';
 import { Rating } from 'primereact/rating';
 import { RadioButton } from 'primereact/radiobutton';
 import 'primeicons/primeicons.css';
+import { BrowserRouter as Router, Routes, Route, Link,useLocation} from 'react-router-dom';
 
 
 const products = [
@@ -75,7 +76,7 @@ function ProductDetailsComponent () {
       </div>  
       
       <div>
-      <Button label="Buy Now" icon="pi pi-check" className="p-button-success buy-button" />
+      <Link to={`/payment`}>{<Button label="Buy Now" icon="pi pi-check" className="p-button-success buy-button" />}</Link>
       <Button label="Add to Cart" icon="pi pi-shopping-cart" className="p-button-secondary cart-button" />
       </div>
 

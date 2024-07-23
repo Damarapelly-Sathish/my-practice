@@ -1,0 +1,135 @@
+/* body {
+    font-family: Arial, sans-serif;
+  } */
+  
+  /* .payment-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  } */
+  
+  .checkout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+  }
+  
+  .delivery-address, .payment-method, .order-summary {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .delivery-address p, .delivery-address a {
+    margin: 5px 0;
+  }
+  
+  .delivery-address a {
+    color: #0073bb;
+    text-decoration: none;
+  }
+  
+  .payment-method form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .payment-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .payment-option input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  .available-balance {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .available-balance input {
+    padding: 5px;
+    margin-right: 10px;
+    flex: 1;
+  }
+  
+  .available-balance button {
+    padding: 5px 10px;
+    background-color: #0073bb;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .payment-option label {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .payment-option img {
+    height: 20px;
+    margin-right: 5px;
+  }
+  
+  .payment-option input[type="text"], .payment-option select {
+    margin-top: 10px;
+    padding: 5px;
+    width: 100%;
+  }
+  
+  .payment-method button[type="submit"] {
+    padding: 10px;
+    background-color: #ff9900;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .order-summary {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+  }
+  
+  .order-items {
+    margin-bottom: 20px;
+  }
+  
+  .order-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .order-item img {
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .order-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
