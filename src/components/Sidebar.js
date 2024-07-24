@@ -3,12 +3,20 @@ import './Sidebar.css';
 
 function Sidebar() {
   const [isGenderDropdownOpen, setIsGenderDropdownOpen] = useState(false);
-
+  const[isBarClicked,setIsBarClicked]=useState(true);
   const toggleGenderDropdown = () => {
     setIsGenderDropdownOpen(!isGenderDropdownOpen);
   };
+  const barClicked = () => {
+    setIsBarClicked(!isBarClicked);
+  };
   return (
+    
     <aside className="sidebar">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+      <div class="navbar"><i onClick={barClicked} className={isBarClicked?"fa fa-bars":""}></i></div>
+      <nav id="sidebar-nav"  className={isBarClicked?"sidebar-nav":"sidebar-nav active"}>
+        <i onClick={barClicked} className={isBarClicked?"":"fa fa-close"}></i>
       <div className="dropdown">
         <button className="dropdown-toggle" onClick={toggleGenderDropdown}>
           Gender {isGenderDropdownOpen ? '▲' : '▼'}
@@ -39,6 +47,7 @@ function Sidebar() {
       <label><input type="checkbox" /> Blue (30)</label>
       <label><input type="checkbox" /> Brown (27)</label>
       <label><input type="checkbox" /> Green (20)</label>
+      </nav>
     </aside>
   );
 }

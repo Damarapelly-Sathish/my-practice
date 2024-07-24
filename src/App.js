@@ -53,8 +53,8 @@ function App() {
   return (
    
      <> 
-      <Header />
      { !PaymentPage1 && !isProductPage && (<div className="App">
+      <Header />
       <div className="main-content">
         <Sidebar />
         <ProductGrid />

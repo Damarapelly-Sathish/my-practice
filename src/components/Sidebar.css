@@ -1,11 +1,4 @@
-.sidebar {
-    width: 500px;
-    background-color: #f5f5f5;
-    padding: 20px;
-    margin-right: 20px;
-    min-width: 150px
-  }
-  
+
   .sidebar h3 {
     margin-top: 20px;
   }
@@ -14,3 +7,30 @@
     display: block;
     margin: 13px;
   }
+  
+  .fa fa-bars{
+    color: black;
+    padding: 20px;
+  }
+  @media screen and (max-width:769999px){
+  .sidebar-nav{
+    width: 250px;
+    height: 100vh;
+    background-color: #f8f8f8;
+    border-right: 1px solid #ddd;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hide the sidebar initially */
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+  .sidebar-nav.active{
+    left:0px;
+  }
+  .fa fa-close {
+    right: 50px;
+    width: 20px;
+    height: 20px;
+}
+
+}
