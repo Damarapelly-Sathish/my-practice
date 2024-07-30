@@ -14,6 +14,8 @@ import PaymentPage from './components/PaymentPage';
 
 import ProductGrid from './components/ProductGrid';
 
+
+
 import './App.css';
 
 const products = [
@@ -45,11 +47,10 @@ function App() {
   const location = useLocation();
   const isProductPage = location.pathname.startsWith('/product');
   const PaymentPage1 = location.pathname.startsWith('/payment');
-
+  
   const items = [
     { label: 'Home', icon: 'pi pi-fw pi-home', command: () => window.location = "/" },
   ];
-  
   return (
    
      <> 
