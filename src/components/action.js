@@ -20,7 +20,7 @@ export const fetchProductsRequest = () => ({
   
   export const fetchProducts = () => {
     return (dispatch) => {
-      console.log(dispatch(fetchProductsRequest()));
+      dispatch(fetchProductsRequest());
       fetch('http://localhost:8080/api/products/getproduct')
         .then(response => response.json())
         .then(data => {
@@ -32,4 +32,19 @@ export const fetchProductsRequest = () => ({
     };
   };
 
-  export default fetchProducts;
+  export const fetchByFilter = (filter) => {
+    return  (dispatch) => {
+      dispatch(fetchProductsRequest());
+      try {
+        fetch(`http://localhost:8080/api/products/getproduct/filter?category=${filter}`)
+        .then(response => response.json())
+        .then(data => {
+          dispatch(fetchProductsSuccess(data));
+          console.log("hello");
+          console.log(data);
+        })
+      } catch (error) {
+        dispatch(fetchProductsFailure(error.message));
+      }
+    };
+  }

@@ -4,18 +4,14 @@ import { BrowserRouter as Router, Routes, Route, Link,useLocation ,useParams} fr
 import { useSelector, useDispatch } from 'react-redux';
 import { findAllByTestId } from '@testing-library/react';
 //import PaymentPage from './PaymentPage';
-import fetchProductsRequest from './action';
+import {fetchProducts} from './action';
 
 const ProductGrid = () => {
-  const [products,setProducts]=useState([]);
-  const dispatch = useDispatch()
-
+  const dispatch = useDispatch();
+  const { loading, products, error }=useSelector(state => state);
+  
   useEffect(() => {
-    setProducts(()=>[{
-      products:dispatch(fetchProductsRequest())
-    }]
-
-    );
+    dispatch(fetchProducts());
   }, [dispatch]);
   // useEffect(() => {
   //   // Function to fetch products from the backend
@@ -103,10 +99,9 @@ const ProductGrid = () => {
   // ];
   return ( 
   <>
-  {console.log(products)}
-    {products.loading?
+    {loading?
     <div className="grid">
-      {products.products.map((product, index) => (
+      {products.map((product, index) => (
         <div className="product-card" key={index}>
           <Link to={`/product/${index}`}>{<img className="product-image" src={product.image} alt={product.name} />}</Link>
           <div className="discount">-{product.discount}</div>
@@ -123,7 +118,7 @@ const ProductGrid = () => {
         </div>
       ))}
 
-    </div>:""}
+    </div>:<>{error}</>}
     </>
   );
 };

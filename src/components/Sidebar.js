@@ -1,5 +1,8 @@
 import React,{useState} from 'react';
 import './Sidebar.css';
+import { useNavigate } from 'react-router-dom';
+import {fetchByFilter} from './action';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Sidebar() {
   const [isGenderDropdownOpen, setIsGenderDropdownOpen] = useState(false);
@@ -9,6 +12,11 @@ function Sidebar() {
   };
   const barClicked = () => {
     setIsBarClicked(!isBarClicked);
+  };
+  const dispatch=useDispatch();
+  const handleFilterClick = (filter) => {
+    console.log("hello")
+    dispatch(fetchByFilter(filter));
   };
   return (
     
@@ -31,16 +39,17 @@ function Sidebar() {
       
 
       <h3>Core Range</h3>
-      <label><input type="checkbox" /> Bucket Hats</label>
+      <div  >
+      <label onClick={() => handleFilterClick('Bucket Hats')}><input type="checkbox" /> Bucket Hats</label>
       <label><input type="checkbox" /> Caps</label>
       <label><input type="checkbox" /> Access</label>
       <label><input type="checkbox" /> Beanies</label>
       <label><input type="checkbox" /> Stock</label>
       <label><input type="checkbox" /> Finn</label>
-      <label><input type="checkbox" /> Frame</label>
+      <label><input type="checkbox" /> Frame</label>-
       <label><input type="checkbox" /> Icon</label>
       <label><input type="checkbox" /> Surf</label>
-      
+      </div>
       <h3>Colour</h3>
       <label><input type="checkbox" /> Black (63)</label>
       <label><input type="checkbox" /> White (31)</label>
