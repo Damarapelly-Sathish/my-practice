@@ -106,10 +106,10 @@ const ProductGrid = () => {
           <Link to={`/product/${index}`}>{<img className="product-image" src={product.image} alt={product.name} />}</Link>
           <div className="discount">-{product.discount}</div>
           <h3 className="product-name">{product.name}</h3>
-          <div className="rating">
-            {'★'.repeat(product.rating)}{'☆'.repeat(5 - product.rating)}
+          {/* <div className="rating">
+            {'★'.repeat(product.rating)}{'☆'.repeat(1000 - product.rating)}
             <span className="reviews">({product.reviews} reviews)</span>
-          </div>
+          </div> */}
           {/* <div className="price">
             <span className="original-price">${product.originalPrice.toFixed(2)}</span>
             <span className="discounted-price">${product.discountedPrice.toFixed(2)}</span>
