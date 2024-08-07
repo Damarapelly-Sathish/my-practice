@@ -15,6 +15,8 @@ import ADDCart from './components/AddCart';
 
 import ProductGrid from './components/ProductGrid';
 
+
+
 import './App.css';
 
 const products = [
@@ -46,6 +48,7 @@ function App() {
   const location = useLocation();
   const isProductPage = location.pathname.startsWith('/product');
   const PaymentPage1 = location.pathname.startsWith('/payment');
+
   const addCartPage = lcoation.pathname.startsWith('/Cart')
 
   const items = [
@@ -65,7 +68,7 @@ function App() {
   const CartItemIncrementer = () =>{
 
   }
-
+  
   return (
      <> 
      { !PaymentPage1 && !isProductPage && (<div className="App">
