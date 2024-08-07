@@ -11,6 +11,7 @@ import { Menubar } from 'primereact/menubar';
 import ProductPage from './Pages/ProductPage';
 import { BreadCrumb } from 'primereact/breadcrumb';
 import PaymentPage from './components/PaymentPage';
+import ADDCart from './components/AddCart';
 
 import ProductGrid from './components/ProductGrid';
 
@@ -45,13 +46,27 @@ function App() {
   const location = useLocation();
   const isProductPage = location.pathname.startsWith('/product');
   const PaymentPage1 = location.pathname.startsWith('/payment');
+  const addCartPage = lcoation.pathname.startsWith('/Cart')
 
   const items = [
     { label: 'Home', icon: 'pi pi-fw pi-home', command: () => window.location = "/" },
   ];
-  
+
+  const cartItems = [
+    { name: 'Crayola 12 Count Washable Bulk Markers, Red', price: 7.40, quantity: 1 },
+    { name: 'Crayola Green Washable Markers, Broad Line Markers, 12 Count', price: 9.88, quantity: 4 },
+    { name: 'Crayola 12 Count Washable Bulk Markers, Blue', price: 8.06, quantity: 6 }
+  ];
+
+  const subtotal = 93.96;
+  const savings = 50.00;
+  const total = subtotal - savings;
+
+  const CartItemIncrementer = () =>{
+
+  }
+
   return (
-   
      <> 
      { !PaymentPage1 && !isProductPage && (<div className="App">
       <Header />
@@ -62,7 +77,8 @@ function App() {
     </div>) }
     <Routes>
     <Route path="/product/:id" element={<ProductPage />} />
-    <Route path="/payment" element={<PaymentPage/>} />
+    <Route path="/payment" element={<PaymentPage/>}      />
+    <Route path="/Cart" element={<ADDCart cartItems={cartItems} subtotal={subtotal} savings={savings} total={total} CartItemIncrementer={CartItemIncrementer}/>} />
     </Routes> 
     </>
   );

@@ -64,6 +64,7 @@ const ProductGrid = () => {
     
   ];
 
+
   return (
     <div className="grid">
       {products.map((product, index) => (
@@ -79,7 +80,7 @@ const ProductGrid = () => {
             <span className="original-price">${product.originalPrice.toFixed(2)}</span>
             <span className="discounted-price">${product.discountedPrice.toFixed(2)}</span>
           </div>
-          <button className="add-to-cart-button">Add to Cart</button>
+         <button onclick ={AddToCart} className="add-to-cart-button">Add to Cart</button> 
         </div>
       ))}
 

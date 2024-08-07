@@ -24,6 +24,7 @@ function ProductDetailsComponent () {
 
     const [selectedColor, setSelectedColor] = useState(null);
     const colors = ['Red', 'Green', 'Blue', 'Yellow', 'Purple'];
+    
     const handleColorChange = (color) => {
     setSelectedColor(color);
     console.log(`Selected color: ${color}`);
@@ -32,6 +33,9 @@ function ProductDetailsComponent () {
     if (!product) {
     return <div>Product not found</div>;
     }
+
+    
+    
 
 
     return(
