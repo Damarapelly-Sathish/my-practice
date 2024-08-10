@@ -1,18 +1,30 @@
-import React, { useState,useEffect} from 'react';
+import React, {useEffect} from 'react';
 import './ProductGrid.css';
-import { BrowserRouter as Router, Routes, Route, Link,useLocation ,useParams} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { findAllByTestId } from '@testing-library/react';
 //import PaymentPage from './PaymentPage';
 import {fetchProducts} from './action';
 
-const ProductGrid = () => {
+const ProductGrid = ({setCartItems}) => {
   const dispatch = useDispatch();
   const { loading, products, error }=useSelector(state => state);
+
+  const addToCart = (product) => {
+    setCartItems((prevCartItems) => {
+      const existingItem = prevCartItems.find(item => item.name === product.name);
+      if (existingItem) {
+        return prevCartItems.map(item =>
+          item.name === product.name ? { ...item, quantity: item.quantity + 1 } : item
+        );
+      } else {
+        return [...prevCartItems, { ...product, quantity: 1 }];
+      }
+    });
+  };
   
   useEffect(() => {
     dispatch(fetchProducts());
-  }, [dispatch]);
+  }, [cart]);
   return ( 
   <>
     {
@@ -28,10 +40,10 @@ const ProductGrid = () => {
             <span className="reviews">({product.reviews} reviews)</span>
           </div> */}
           {/* <div className="price">
-            <span className="original-price">${product.originalPrice.toFixed(2)}</span>
+            <span className="original-price">${product. .toFixed(2)}</span>
             <span className="discounted-price">${product.discountedPrice.toFixed(2)}</span>
           </div> */}
-          <button className="add-to-cart-button">Add to Cart</button>
+          <button className="add-to-cart-button" onClick={() => addToCart(product)}>Add to Cart</button>
         </div>
       ))}
 
@@ -46,3 +58,7 @@ const ProductGrid = () => {
 export default ProductGrid;
 
 
+
+changecart(1)
+
+button onclick= {changecart} -const [cart,changecart] = useState(1) -> 

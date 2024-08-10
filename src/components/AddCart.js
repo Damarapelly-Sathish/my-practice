@@ -3,13 +3,35 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 import { InputNumber } from 'primereact/inputnumber';
+import {Link} from 'react-router-dom'
 
-const ADDCart = ({ cartItems, subtotal, savings, total }) => {
-  const deleteItemTemplate = () => <Button icon="pi pi-trash" className="p-button-danger" />;
+function ADDCart({cartItems,subtotal,savings,total,removeFromCart,updateQuantity}){
+  // Template for the delete button
+  const deleteItemTemplate = (rowData) => {
+    return (
+      <Button 
+        icon="pi pi-trash" 
+        className="p-button-danger" 
+        onClick={() => removeFromCart(rowData.id)} 
+        tooltip="Delete"
+      />
+    );
+  };
 
-  const quantityTemplate = (rowData) => (
-    <InputNumber value={rowData.quantity} readOnly />
-  );
+  // Template for the quantity input
+  const quantityTemplate = (rowData) => {
+    return (
+      <InputNumber 
+        value={rowData.quantity} 
+        onValueChange={(e) => updateQuantity(rowData.id, e.value)} 
+        showButtons 
+        buttonLayout="horizontal"
+        min={1}
+        decrementButtonClassName="p-button-secondary" 
+        incrementButtonClassName="p-button-secondary" 
+      />
+    );
+  };
 
   return (
     <div className="p-grid p-justify-center">
@@ -27,7 +49,7 @@ const ADDCart = ({ cartItems, subtotal, savings, total }) => {
             <div>Savings: -${savings.toFixed(2)}</div>
             <div>Total: ${total.toFixed(2)}</div>
           </div>
-          <Button label="Proceed to Checkout" icon="pi pi-check" className="p-button-success" />
+          <Link to={`/payment`}>{<Button label="Proceed to Checkout" icon="pi pi-check" className="p-button-success" />}</Link>
         </div>
       </div>
     </div>
