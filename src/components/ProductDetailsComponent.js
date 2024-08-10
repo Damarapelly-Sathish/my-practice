@@ -3,11 +3,11 @@ import { useParams } from 'react-router-dom';
 import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
 import '../StyleSheets/ProductPage.css';
-import { BreadcrumbComponent } from '../App';
+// import { BreadcrumbComponent } from '../App';
 import { Rating } from 'primereact/rating';
 import { RadioButton } from 'primereact/radiobutton';
 import 'primeicons/primeicons.css';
-import { BrowserRouter as Router, Routes, Route, Link,useLocation} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 
 const products = [
@@ -24,6 +24,7 @@ function ProductDetailsComponent () {
 
     const [selectedColor, setSelectedColor] = useState(null);
     const colors = ['Red', 'Green', 'Blue', 'Yellow', 'Purple'];
+    
     const handleColorChange = (color) => {
     setSelectedColor(color);
     console.log(`Selected color: ${color}`);
@@ -32,6 +33,9 @@ function ProductDetailsComponent () {
     if (!product) {
     return <div>Product not found</div>;
     }
+
+    
+    
 
 
     return(
@@ -48,7 +52,7 @@ function ProductDetailsComponent () {
       </div>
 
       <div className="product-details">
-      <BreadcrumbComponent />
+      {/* <BreadcrumbComponent /> */}
 
       <p>{product.name}</p>
 

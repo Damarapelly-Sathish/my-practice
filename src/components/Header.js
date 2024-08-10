@@ -3,6 +3,7 @@
 import './Header.css';
 import Sidebar from './Sidebar.js';
 import React,{useState} from 'react';
+import {Link} from 'react-router-dom'
 
 const Navbar = (props) => {
   const [isShopOpen, setIsShopOpen] = useState(false);
@@ -41,7 +42,26 @@ const Navbar = (props) => {
         <div className="navbar-icons">
           <span className="icon-search"></span>
           <span className="icon-user"></span>
-          <span className="icon-cart"></span>
+          <Link to={`/cart`} >
+          <div style={{ marginLeft: 'auto', position: 'relative' }}> cart <div style={{ 
+            backgroundColor: 'red',
+            borderRadius: '50%',
+            width: '24px',
+            height: '24px',
+            color: 'white',
+            cursor:'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            position: 'absolute',
+            top: '-10px',
+            right: '-10px',
+            fontSize: '14px'
+          }}>
+            {cartItems.length}
+          </div>
+          </div>
+          </Link>
         </div>
       </div>
     </header>

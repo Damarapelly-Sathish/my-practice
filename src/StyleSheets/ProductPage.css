@@ -39,6 +39,23 @@
     margin-right: 10px;
   }
 
+  .navbar {
+    display: flex;
+    justify-content: flex-end; /* Adjust as needed */
+    padding: 10px;
+    background-color: #f8f9fa; /* Example background */
+  }
+  
+  .cart-container {
+    position: relative;
+  }
+  
+  .p-button-rounded .p-badge {
+    position: absolute;
+    top: -10px; /* Adjust for badge position */
+    right: -10px; /* Adjust for badge position */
+  }
+
 
   
   
