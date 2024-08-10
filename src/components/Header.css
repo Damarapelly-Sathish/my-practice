@@ -1,30 +1,130 @@
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #000;
-    color: #fff;
-    padding: 10px 20px;
+/* src/Navbar.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.navbar .navbar-top{
+  align-items: center;
+}
+.navbar-top {
+  border-bottom: black solid 1px;
+    font-family: neue-haas-unica, sans-serif;
+    color: 575757px;;
+    font-size: 12px;
+    letter-spacing: 1.6px;
+    line-height: 18px;
+    font-weight: 500;
+    padding: 30px 0px
+}
+
+.navbar-top-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  align-items: center;
+}
+
+.navbar-top-links {
+  display: flex;
+    margin-left: auto;
+    padding-right: 2rem;
+    position: absolute;
+  right: 100px;
+}
+
+.navbar-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #000;
+}
+
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+#sidebar-nav123 {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+#sidebar-nav678 {
+  background-color: red;
+  z-index: 1;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+.navbar-icons {
+  display: flex;
+  align-items: center;
+}
+
+.icon-search, .icon-user, .icon-cart {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  background-size: cover;
+}
+.navbar-links {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: 12px;
+  background-color: #000
+}
+
+.a {
+  color:inherit;
+  text-decoration:none
+}
+.span{
+   display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolat;
+    position:absolute;
+    left:30px
+}
+
+@media screen and (max-width:769999px){
+  .sidebar-nav{
+    width: 250px;
+    height: 100vh;
+    background-color: #f8f8f8;
+    border-right: 1px solid #ddd;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hide the sidebar initially */
+    transition: left 0.3s ease;
+    z-index: 1000;
   }
-  
-  .nav a {
-    color: #fff;
-    margin: 0 10px;
-    text-decoration: none;
+  .sidebar-nav.active{
+    left:0px;
   }
-  
-  .account-actions a, .account-actions button {
-    color: #fff;
-    margin: 0 10px;
-    text-decoration: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .account-actions button {
-    background-color: #007bff;
-    border-radius: 5px;
-    padding: 5px 10px;
-  }
-  
+  .fa fa-close {
+    right: 50px;
+    width: 20px;
+    height: 20px;
+}
+
+
+}
+/* .icon-search {
+  background-image: url('/path-to-search-icon.png');
+}
+
+.icon-user {
+  background-image: url('/path-to-user-icon.png');
+}
+
+.icon-cart {
+  background-image: url('/path-to-cart-icon.png');
+} */

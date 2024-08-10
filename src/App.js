@@ -1,6 +1,5 @@
 import React from 'react';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
+import Navbar from './components/Header';
 
 import ProductCardFlipper from './components/ProductCardFlipper';
 import { BrowserRouter as Router, Routes, Route, Link,useLocation ,useParams} from 'react-router-dom';
@@ -54,10 +53,9 @@ function App() {
   return (
    
      <> 
-     { !PaymentPage1 && !isProductPage && (<div className="App">
-      <Header />
+     { !PaymentPage1  && (<div className="App">
+      <Navbar />
       <div className="main-content">
-        <Sidebar />
         <ProductGrid />
       </div>
     </div>) }
