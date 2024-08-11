@@ -1,0 +1,132 @@
+.cart-container {
+  
+ /* Changed from column to row for horizontal alignment */
+   padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto; 
+  justify-content: space-between;/*  Space between cart items and summary*/
+}
+
+.cart_setcion1{
+display:flex;
+flex-direction: row;
+justify-content:space-between ;
+align-Items:"flex-start";
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  flex: 3; /* Takes up more space */
+  margin-right: 20px; /* Adds some space between cart items and summary */
+}
+
+.cart-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.cart-item-image img {
+  width: 100px;
+  height: 100px;
+}
+
+.cart-item-details {
+  margin-left: 20px;
+}
+
+.cart-item-price {
+  margin-left: auto;
+  font-weight: bold;
+}
+
+.cart-summary-container {
+  flex: 1; /* Takes up less space than cart items */
+  margin-top: 0; /* Remove top margin to align with cart items */
+  display: flex;
+  justify-content: flex-start; /* Align the summary section at the top */
+}
+
+.cart-summary {
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 100%; /* Ensures it takes full width of its container */
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.total {
+  font-weight: bold;
+}
+
+.checkout-btn, .paypal-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.checkout-btn {
+  background-color: black;
+  color: white;
+}
+
+.paypal-btn {
+  background-color: #ffc439;
+}
+
+.recommended-products-container {
+  margin-top: 20px;
+}
+
+.recommended-products {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.products-list {
+  display: flex;
+  gap: 20px;
+}
+
+.product-item {
+  text-align: center;
+}
+
+.product-item img {
+  width: 150px;
+  height: 150px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-controls button {
+  background-color: #ddd;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.quantity-controls span {
+  min-width: 30px;
+  text-align: center;
+}
+.cart-item-actions{
+ 
+}
+.cart-item-actions button {
+  background-color: red;
+  margin: 5px;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}

@@ -24,7 +24,7 @@ const ProductGrid = ({setCartItems}) => {
   
   useEffect(() => {
     dispatch(fetchProducts());
-  }, [cart]);
+  }, [dispatch]);
   return ( 
   <>
     {
@@ -58,7 +58,3 @@ const ProductGrid = ({setCartItems}) => {
 export default ProductGrid;
 
 
-
-changecart(1)
-
-button onclick= {changecart} -const [cart,changecart] = useState(1) -> 
