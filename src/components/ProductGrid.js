@@ -1,15 +1,18 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './ProductGrid.css';
 import { Link} from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch,} from 'react-redux';
 //import PaymentPage from './PaymentPage';
 import {fetchProducts} from './action';
+import FetchCartData from './actionforcart'
 
 const ProductGrid = ({setCartItems}) => {
   const dispatch = useDispatch();
   const { loading, products, error }=useSelector(state => state);
-
+  const [addcart,addcarttoapi]=useState(false);
   const addToCart = (product) => {
+    dispatch(FetchCartData(product))
+    addcarttoapi(!addcart);
     setCartItems((prevCartItems) => {
       const existingItem = prevCartItems.find(item => item.name === product.name);
       if (existingItem) {
@@ -43,7 +46,9 @@ const ProductGrid = ({setCartItems}) => {
             <span className="original-price">${product. .toFixed(2)}</span>
             <span className="discounted-price">${product.discountedPrice.toFixed(2)}</span>
           </div> */}
+          <div>
           <button className="add-to-cart-button" onClick={() => addToCart(product)}>Add to Cart</button>
+          </div>
         </div>
       ))}
 
@@ -53,8 +58,9 @@ const ProductGrid = ({setCartItems}) => {
   );
 };
 
+const mapDispatchToProps = {
+  FetchCartData,
+};
 
-
-export default ProductGrid;
-
+export default  (ProductGrid);
 

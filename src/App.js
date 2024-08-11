@@ -74,7 +74,6 @@ function App() {
           <div className="App">
             <Header cartItems={cartItems}/>
             <div className="main-content">
-              <Sidebar />
               <ProductGrid setCartItems={setCartItems}/>
             </div>
           </div>

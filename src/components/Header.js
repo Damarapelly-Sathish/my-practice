@@ -58,7 +58,7 @@ const Navbar = (props) => {
             right: '-10px',
             fontSize: '14px'
           }}>
-            {cartItems.length}
+            {props.cartItems.length}
           </div>
           </div>
           </Link>
