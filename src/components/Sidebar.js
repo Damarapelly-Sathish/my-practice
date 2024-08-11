@@ -10,9 +10,6 @@ function Sidebar() {
   const toggleGenderDropdown = () => {
     setIsGenderDropdownOpen(!isGenderDropdownOpen);
   };
-  const barClicked = () => {
-    setIsBarClicked(!isBarClicked);
-  };
   const dispatch=useDispatch();
   const handleFilterClick = (filter) => {
     console.log("hello")
@@ -22,9 +19,7 @@ function Sidebar() {
     
     <aside className="sidebar">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-      <div class="navbar"><i onClick={barClicked} className={isBarClicked?"fa fa-bars":""}></i></div>
-      <nav id="sidebar-nav"  className={isBarClicked?"sidebar-nav":"sidebar-nav active"}>
-        <i onClick={barClicked} className={isBarClicked?"":"fa fa-close"}></i>
+      <nav id="sidebar-nav" >
       <div className="dropdown">
         <button className="dropdown-toggle" onClick={toggleGenderDropdown}>
           Gender {isGenderDropdownOpen ? '▲' : '▼'}
@@ -46,7 +41,7 @@ function Sidebar() {
       <label><input type="checkbox" /> Beanies</label>
       <label><input type="checkbox" /> Stock</label>
       <label><input type="checkbox" /> Finn</label>
-      <label><input type="checkbox" /> Frame</label>-
+      <label><input type="checkbox" /> Frame</label>
       <label><input type="checkbox" /> Icon</label>
       <label><input type="checkbox" /> Surf</label>
       </div>
