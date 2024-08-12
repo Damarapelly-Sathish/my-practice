@@ -6,22 +6,22 @@ import {
   
   const cartState = {
     loading: false,
-    products: [],
+    cart: [],
     error: ''
   };
   
-  const cartReducer = (state = cartState, action) => {
+  const cartReducer = (state1= cartState, action) => {
+    console.log(action.type)
     switch (action.type) {
       case FETCH_Cart_PRODUCTS_REQUEST:
         return {
-          ...cartState,
+          ...state1,
           loading: true
         };
       case FETCH_Cart_PRODUCTS_SUCCESS:
         return {
           loading: true,
-          products: action.payload,
-          error: ''
+          cart:action.payload,
         };
       case FETCH_Cart_PRODUCTS_FAILURE:
         return {
@@ -30,7 +30,7 @@ import {
           error: action.payload
         };
       default:
-        return state;
+        return state1;
     }
   };
   

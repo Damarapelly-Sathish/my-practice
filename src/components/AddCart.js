@@ -1,12 +1,20 @@
-import React from 'react';
+import {React,useEffect} from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 import { InputNumber } from 'primereact/inputnumber';
 import {Link} from 'react-router-dom'
+import { useSelector, useDispatch} from 'react-redux';
+import {FetchCartData} from './actionforcart'
+import {store} from './store';
 
 function ADDCart({cartItems,subtotal,savings,total,removeFromCart,updateQuantity}){
-  // Template for the delete button
+  const { loading, cart, error }=useSelector(state1 => state1.cartItems);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    store.dispatch(FetchCartData());
+  }, [dispatch]);
+  console.log(cart)
   const deleteItemTemplate = (rowData) => {
     return (
       <Button 
@@ -19,11 +27,11 @@ function ADDCart({cartItems,subtotal,savings,total,removeFromCart,updateQuantity
   };
 
   // Template for the quantity input
-  const quantityTemplate = (rowData) => {
+  const quantityTemplate = (cart) => {
     return (
       <InputNumber 
-        value={rowData.quantity} 
-        onValueChange={(e) => updateQuantity(rowData.id, e.value)} 
+        value={cart.quantity} 
+        onValueChange={(e) => updateQuantity(cart.id, e.value)} 
         showButtons 
         buttonLayout="horizontal"
         min={1}
