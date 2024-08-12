@@ -61,6 +61,5 @@ const mapDispatchToProps = {
   PostCartData,
 };
 
-
-
 export default  (ProductGrid);
+

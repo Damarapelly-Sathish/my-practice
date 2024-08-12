@@ -62,15 +62,6 @@ function App() {
     { id: 2, name: 'Product 2', price: 20, quantity: 2 },
   ]);
 
-  const updateQuantity = (id, quantity) => {
-    setCartItems(cartItems.map(item =>
-      item.id === id ? { ...item, quantity } : item
-    ));
-  };
-
-  const removeFromCart = (id) => {
-    setCartItems(cartItems.filter(item => item.id !== id));
-  };
 
   const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
   const savings = 0; // Calculate savings if needed
@@ -89,7 +80,7 @@ function App() {
         } />
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/payment" element={<PaymentPage />} />
-        <Route path="/cart" element={<ADDCart cartItems={cartItems} subtotal={subtotal} savings={savings} total={total} removeFromCart={removeFromCart} updateQuantity={updateQuantity} />} />
+        <Route path="/cart" element={<ADDCart cartItems={cartItems} subtotal={subtotal} savings={savings} total={total} setCartItems={setCartItems} />} />
       </Routes>
     </>
   );
