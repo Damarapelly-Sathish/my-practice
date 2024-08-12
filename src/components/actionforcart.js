@@ -36,10 +36,10 @@ import {
   export const FetchCartData = () => {
     return (dispatch) => {
       dispatch(fetchCartProductsRequest());
-      fetch('http://localhost:8080/cart/1')
+      fetch('http://localhost:8080/cart/33023723')
         .then(response => response.json())
         .then(data => {
-          store.dispatch(fetchCartProductsSuccess(data));
+          store.dispatch(fetchCartProductsSuccess(data.items));
         })
         .catch(error => {
           dispatch(fetchCartProductsFailure(error.message));

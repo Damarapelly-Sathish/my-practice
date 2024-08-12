@@ -11,40 +11,13 @@ import { useSelector, useDispatch} from 'react-redux';
 import {FetchCartData} from './actionforcart'
 import {store} from './store';
 
-function ADDCart({cartItems,subtotal,savings,total,removeFromCart,updateQuantity}){
+function ADDCart({cartItems,subtotal,setCartItems,total,updateQuantity}){
   const { loading, cart, error }=useSelector(state1 => state1.cartItems);
   const dispatch = useDispatch();
   useEffect(() => {
     store.dispatch(FetchCartData());
   }, [dispatch]);
   console.log(cart)
-  const deleteItemTemplate = (rowData) => {
-    return (
-      <Button 
-        icon="pi pi-trash" 
-        className="p-button-danger" 
-        onClick={() => removeFromCart(rowData.id)} 
-        tooltip="Delete"
-      />
-    );
-  };
-
-  // Template for the quantity input
-  const quantityTemplate = (cart) => {
-    return (
-      <InputNumber 
-        value={cart.quantity} 
-        onValueChange={(e) => updateQuantity(cart.id, e.value)} 
-        showButtons 
-        buttonLayout="horizontal"
-        min={1}
-        decrementButtonClassName="p-button-secondary" 
-        incrementButtonClassName="p-button-secondary" 
-      />
-    );
-
-function ADDCart({cartItems,subtotal,savings,total,setCartItems}){
-  // Template for the delete button
   // Function to increment quantity
   const incrementQuantity = (id) => {
     setCartItems(cartItems.map(item =>
@@ -93,7 +66,7 @@ function ADDCart({cartItems,subtotal,savings,total,setCartItems}){
     <div className=" cart-container" >
       <div style={{display:"flex",justifyContent: "space-between",alignItems:"flex-start"}}> 
       <div className="cart-items">
-        {cartItems.map(item => (
+        {cart.map(item => (
           <div className="cart-item">
           <div className="cart-item-image">
             <img src={item.image} alt={item.name} />
