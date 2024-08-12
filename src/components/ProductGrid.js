@@ -3,16 +3,15 @@ import './ProductGrid.css';
 import { Link} from 'react-router-dom';
 import { useSelector, useDispatch,} from 'react-redux';
 //import PaymentPage from './PaymentPage';
-import {fetchProducts} from './action';
-import FetchCartData from './actionforcart'
+import {fetchProducts,fetchProductsRequest} from './action';
+import {PostCartData} from './actionforcart';
+import {store} from './store';
 
 const ProductGrid = ({setCartItems}) => {
   const dispatch = useDispatch();
-  const { loading, products, error }=useSelector(state => state);
-  const [addcart,addcarttoapi]=useState(false);
+  const { loading, products, error }=useSelector(state => state.product);
   const addToCart = (product) => {
-    dispatch(FetchCartData(product))
-    addcarttoapi(!addcart);
+    store.dispatch(PostCartData(product))
     setCartItems((prevCartItems) => {
       const existingItem = prevCartItems.find(item => item.name === product.name);
       if (existingItem) {
@@ -26,7 +25,7 @@ const ProductGrid = ({setCartItems}) => {
   };
   
   useEffect(() => {
-    dispatch(fetchProducts());
+    store.dispatch(fetchProducts());
   }, [dispatch]);
   return ( 
   <>
@@ -59,7 +58,7 @@ const ProductGrid = ({setCartItems}) => {
 };
 
 const mapDispatchToProps = {
-  FetchCartData,
+  PostCartData,
 };
 
 export default  (ProductGrid);

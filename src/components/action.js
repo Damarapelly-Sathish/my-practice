@@ -40,7 +40,6 @@ export const fetchProductsRequest = () => ({
         .then(response => response.json())
         .then(data => {
           dispatch(fetchProductsSuccess(data));
-          console.log("hello");
           console.log(data);
         })
       } catch (error) {

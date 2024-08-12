@@ -1,4 +1,4 @@
-import React from 'react';
+import {React,useEffect} from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
@@ -7,6 +7,42 @@ import {Link} from 'react-router-dom'
 import '../StyleSheets/cart.css'
 import CartSummary from './CartComponent/CartSummary'
 import RecommendedProducts from './CartComponent/RecommendedProducts'
+import { useSelector, useDispatch} from 'react-redux';
+import {FetchCartData} from './actionforcart'
+import {store} from './store';
+
+function ADDCart({cartItems,subtotal,savings,total,removeFromCart,updateQuantity}){
+  const { loading, cart, error }=useSelector(state1 => state1.cartItems);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    store.dispatch(FetchCartData());
+  }, [dispatch]);
+  console.log(cart)
+  const deleteItemTemplate = (rowData) => {
+    return (
+      <Button 
+        icon="pi pi-trash" 
+        className="p-button-danger" 
+        onClick={() => removeFromCart(rowData.id)} 
+        tooltip="Delete"
+      />
+    );
+  };
+
+  // Template for the quantity input
+  const quantityTemplate = (cart) => {
+    return (
+      <InputNumber 
+        value={cart.quantity} 
+        onValueChange={(e) => updateQuantity(cart.id, e.value)} 
+        showButtons 
+        buttonLayout="horizontal"
+        min={1}
+        decrementButtonClassName="p-button-secondary" 
+        incrementButtonClassName="p-button-secondary" 
+      />
+    );
+
 function ADDCart({cartItems,subtotal,savings,total,setCartItems}){
   // Template for the delete button
   // Function to increment quantity

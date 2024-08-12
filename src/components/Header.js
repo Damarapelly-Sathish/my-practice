@@ -4,14 +4,14 @@ import './Header.css';
 import Sidebar from './Sidebar.js';
 import React,{useState} from 'react';
 import {Link} from 'react-router-dom'
+import {fetchCartProductsRequest} from './actionforcart'
+import { useSelector, useDispatch,} from 'react-redux';
 
 const Navbar = (props) => {
   const [isShopOpen, setIsShopOpen] = useState(false);
-
   const handleShopClick = () => {
     setIsShopOpen(!isShopOpen);
   };
-
   return (
     <header className="navbar">
       <div className="navbar-top">
@@ -43,7 +43,7 @@ const Navbar = (props) => {
           <span className="icon-search"></span>
           <span className="icon-user"></span>
           <Link to={`/cart`} >
-          <div style={{ marginLeft: 'auto', position: 'relative' }}> cart <div style={{ 
+          <div style={{ marginLeft: 'auto', position: 'relative' }} > cart <div style={{ 
             backgroundColor: 'red',
             borderRadius: '50%',
             width: '24px',
