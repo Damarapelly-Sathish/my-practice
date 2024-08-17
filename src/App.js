@@ -10,9 +10,8 @@ import 'primeicons/primeicons.css';
 import { Menubar } from 'primereact/menubar';
 import ProductPage from './Pages/ProductPage';
 import { BreadCrumb } from 'primereact/breadcrumb';
-import PaymentPage from './components/PaymentPage';
+import PaymentComponent from './components/paymentComponent/PaymentComponent'
 import ADDCart from './components/AddCart';
-
 import ProductGrid from './components/ProductGrid';
 
 
@@ -79,7 +78,7 @@ function App() {
           </div>
         } />
         <Route path="/product/:id" element={<ProductPage />} />
-        <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/payment" element={<PaymentComponent  />} />
         <Route path="/cart" element={<ADDCart cartItems={cartItems} subtotal={subtotal} savings={savings} total={total} setCartItems={setCartItems} />} />
       </Routes>
     </>
