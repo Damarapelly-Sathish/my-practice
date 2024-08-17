@@ -6,8 +6,15 @@ import React,{useState} from 'react';
 import {Link} from 'react-router-dom'
 import {fetchCartProductsRequest} from './actionforcart'
 import { useSelector, useDispatch,} from 'react-redux';
+import Modal from './Modal';
+import Login from './login'
 
 const Navbar = (props) => {
+  const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
   const [isShopOpen, setIsShopOpen] = useState(false);
   const handleShopClick = () => {
     setIsShopOpen(!isShopOpen);
@@ -18,7 +25,10 @@ const Navbar = (props) => {
         <div className="navbar-top-content">
           <span>Complimentary Ground Shipping On Domestic Orders Of $250 Or More!</span>
           <div className="navbar-top-links">
-          <a href="#" className="navbar-link">My Account</a>
+          <a href="#" className="navbar-link" onClick={toggleModal}>My Account</a>
+          <Modal show={showModal} onClose={toggleModal}>
+          <Login />
+          </Modal>
           <a href="#" className="navbar-link">Contact Us</a>
           </div>
         </div>
