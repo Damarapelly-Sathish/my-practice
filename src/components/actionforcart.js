@@ -32,6 +32,30 @@ import {
     };
   };
 
+  export const PostUserData= (props) => {
+    return (dispatch) => {
+      fetch('http://localhost:8080/account/SignUp',{
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json',
+        }, 
+        body: JSON.stringify(props)
+      }) 
+    };
+  };
+
+  export const PostLoginData= (props,e) => {
+    return (dispatch) => {
+      fetch('http://localhost:8080/account/Login',{
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json',
+        }, 
+        body: JSON.stringify(props)
+      }) 
+    };
+  };
+
 
   export const FetchCartData = () => {
     return (dispatch) => {
